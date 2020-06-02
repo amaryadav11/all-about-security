@@ -35,10 +35,29 @@ Delegated authorization- no standard or good solution available
 and OAuth and OpenID Connect tries to solve all the above problems in a efficient secure and  standardised way.
 OAuth2.0 Terminologies and Jargons.
 1.Delegated Authorization: this means how can i let a website access my datawithout giving it my password and this is what OAuth tries to solve and it excels in this field.
+2.Resource owner : represents the user who is sitting infront of the keyboard who owns the data the app is looking for
+3.client: the app which wants to get the resource owner data
+4.Authorization server: who asks user for username and password and show a consent screen to user like accounts.google.com
+5.Resource server: the server which holds the user data the client is interested in like google contacts api
+6.Authorization  grant: the whole dance from webapp to accounts.google.com to again to webapp is to get this authorisation grant it proves that the user has clicked ok
+7. Redirect uri: once the user clicks ok the authorization server needs to know where to redirect the user to in actual webapp this place is called redirect uri
+8. Access token: At the end what client actually needs is the access token that allows client to access user data
+
 
 
 Everyone of us uses OAuth Authentication in one or other way like when you see login with google or facebook option on a website this is OAuth authentication this is a very common pattern on internet now.So when you click on that button it shows a consent screen and when you click on ok it logs you in and now this new app is connected to your google or facebook account and can access your data from your google or facebook account(note it will not be able to access all of your data it will only
 be able to access those that you allow it to see so from next time carefully read the message on consent screen before blindly clicking on ok buton it can access your entire data or delete data if
 you provide more permissions to the app) this pattern is called OAuth pattern
+
+
+when you go to a website and you see a login with google button and you click on that button you have started and OAuth flow(is a set of steps that ultimately results in application being able to access
+your data) the users browser  will be redirected to google domain at google domain they will be prompted to login probably it will ask for username and password again this authentication ca be of different types like otp based auth or push authentication or kerberos authentication etc. once the user is authenticated the the user is presented with a prompt hey xyz app want to access a list of things from you account do you want to allow if user clicks yes the browser is redirected to the orginal application where it was started to a special place in application called callback or redirect URI and some magic happens behind the scenes(more about it later) and then that app is allwed to talk to some other api like google contacts api now this app has a special magical thing you see this and give me this user details yes I see it and it looks legit so here is the user details you requested.
+
+
+1.when the user is redirected to the authorisation server the xyz also passes some info like redirect uri and response type:code(what type of authorization code you want there are few different types of authorization grant most common is authorization code grant at the end xyz app will get a code)
+
+2. the user logs in and click ok
+3. user is redirected to xyz app (redirect uri) and is redirected with authorization code(magical thing which we we talking about above) using the authorization code client can't do anything 
+now the client one more time goes to the authorization server and say you just send me this authorization code and here is my client id give me an access token this happens on back channel server side this add an extra layer of security because if someone steals the authorization code with xyz client id it is of no use Authorization server verifies the authorisation code and client id it checks that authorisation code is not forged and is still valid now the client has access token it can access user data using this token
 
 
