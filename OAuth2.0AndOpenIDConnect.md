@@ -34,5 +34,11 @@ Delegated authorization- no standard or good solution available
 
 and OAuth and OpenID Connect tries to solve all the above problems in a efficient secure and  standardised way.
 OAuth2.0 Terminologies and Jargons.
+1.Delegated Authorization: this means how can i let a website access my datawithout giving it my password and this is what OAuth tries to solve and it excels in this field.
+
+
+Everyone of us uses OAuth Authentication in one or other way like when you see login with google or facebook option on a website this is OAuth authentication this is a very common pattern on internet now.So when you click on that button it shows a consent screen and when you click on ok it logs you in and now this new app is connected to your google or facebook account and can access your data from your google or facebook account(note it will not be able to access all of your data it will only
+be able to access those that you allow it to see so from next time carefully read the message on consent screen before blindly clicking on ok buton it can access your entire data or delete data if
+you provide more permissions to the app) this pattern is called OAuth pattern
 
 
