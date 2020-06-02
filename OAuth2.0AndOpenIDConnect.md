@@ -60,4 +60,5 @@ your data) the users browser  will be redirected to google domain at google doma
 3. user is redirected to xyz app (redirect uri) and is redirected with authorization code(magical thing which we we talking about above) using the authorization code client can't do anything 
 now the client one more time goes to the authorization server and say you just send me this authorization code and here is my client id give me an access token this happens on back channel server side this add an extra layer of security because if someone steals the authorization code with xyz client id it is of no use Authorization server verifies the authorisation code and client id it checks that authorisation code is not forged and is still valid now the client has access token it can access user data using this token
 
-
+with OAuth we can give granular permission to apps this idea in OAuth is called scopes
+the authorization server has a list of scopes that it understands like contacts-read, contacts-write etc any type of permission that makes sense in the system so when the client kicks off the flow it passes this scope to Authorization server client can alo requests multiple scopes based on the list of scope he authorization server generates consent screen which is shown to user.
