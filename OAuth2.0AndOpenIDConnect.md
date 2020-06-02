@@ -74,3 +74,8 @@ why cant we get the access token in first request itself the flow is designed li
 the authorization code comes back to the redirect uri over browser
 
 access token is a sensitive information that also lives on backend server and the resource is fetched using access token from back channel
+
+Steps to setup oAuth
+1. register with a Authorization server
+after registering app it will give clientid(identifies the xyz app) and client secret(sensitive other part of key that is used with auth code to get get access token)
+oAuthdebugger.com
