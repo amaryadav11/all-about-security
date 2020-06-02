@@ -62,3 +62,9 @@ now the client one more time goes to the authorization server and say you just s
 
 with OAuth we can give granular permission to apps this idea in OAuth is called scopes
 the authorization server has a list of scopes that it understands like contacts-read, contacts-write etc any type of permission that makes sense in the system so when the client kicks off the flow it passes this scope to Authorization server client can alo requests multiple scopes based on the list of scope he authorization server generates consent screen which is shown to user.
+
+The access token thst comes out of this flow is scoped
+
+Front channel(communication between browser and authorization server) we cannot store api key in js because someone can inspect js code and can misuse it so i will store it on server side so no one can
+access it browser cannot be fully trusted bacause info can leak from browser 
+back channel(communication between server side code and Authorisation or resource server)
