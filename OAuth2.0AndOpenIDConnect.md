@@ -67,4 +67,4 @@ The access token thst comes out of this flow is scoped
 
 Front channel(communication between browser and authorization server) we cannot store api key in js because someone can inspect js code and can misuse it so i will store it on server side so no one can
 access it browser cannot be fully trusted bacause info can leak from browser 
-back channel(communication between server side code and Authorisation or resource server)
+back channel(communication between server side code and Authorisation or resource server) we have control over the code running on server and no one can see or change it so more secure and can be fully trusted
