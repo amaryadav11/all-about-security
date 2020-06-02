@@ -72,3 +72,5 @@ back channel(communication between server side code and Authorisation or resourc
 why cant we get the access token in first request itself the flow is designed like thi to use the good things of both back and front channel and to make it highly secure
 
 the authorization code comes back to the redirect uri over browser
+
+access token is a sensitive information that also lives on backend server and the resource is fetched using access token from back channel
