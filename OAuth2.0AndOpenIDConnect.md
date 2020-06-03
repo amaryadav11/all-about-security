@@ -83,8 +83,57 @@ oAuthdebugger.com
 There are a coupe of different OAuthe grant types
 1.Authorization code (front channel + back channel)
 2. Implicit(front channnel only)(when you dont have a back channel skip the authoeization code exchange step and give me the access token right away from Authorization server dont give me the 
-code )(use cases: pure react or angular app that has no backend or mobile app means there is no backend server to render the page or run any sort of logic on server side)
+code )(use cases: pure react or angular app that has no backend or mobile app means there is no backend server to render the page or run any sort of logic on server side) response type: token
 3. Resource owner password credentials(back channel only) server side code posting credentials to the 
 Authorization server to get the access token right away no browser involved used when working with older apps
 4. client credentials (back channel only) used when doing machine to machine or service to service communication
 
+Identity use cases(pre 2014)
+1.Simple login (Oauth 2.0)
+2. SSO(Oauth 2.0)
+3. Mobile app login(Oauth 2.0)
+3. Delegated Authorization(Oauth 2.0)
+
+Login to an app using social credentials
+OAuth was built for Authorization not for Authentication but people started using it for authentication use cases Oauth was never designed for authentication use cases(its a hack)
+
+using oauth for authentication is bad because in oauth there is no standard way of getting user
+info
+
+when an user logs into an app an app may want to know who just logged in Oauth was designed for permissions scopes it cares about is you access token scoped for particular thing it does not care who you are when google or facebook made their login with goolge button they had their own way to get the user info that oauth was missing
+
+OpenID Connect(protocol) is an extension to Oauth 2.0 that provides standard way for authentication
+
+OpenID Connects adds
+1. ID token - it represents the id or info about the user provided by authorisation serever jwt token
+jsonwebtoken.io
+2. user info endpoint for getting more user information that is not available in id token which all
+openid connect enabled authorization servers implement which means if i am taking to an authorization
+server which is openid enabled or understands openid connect i can also ask for an id token(contains some user info) 
+
+in request we add an extra scope: openid so this means its an openid request insteat of plain oath request
+
+now when we exchange code with token now we also get an id token it can be decoded by the application to understand who the user is who just logged in we can also use the access toke to get more info about user by calling userinfo endpoint openid connect debugger
+3. standard set of scopes
+4. standardized implementation
+
+JWT structure 
+header section:
+payload section: contains claim it is decoded by app to understand who just logged in when token expires when they logged in etc
+signature portion: verify id token has not been modified or compromised or changed(forged) in any way during flight it verifies using public key of authorization server
+
+use Oauth for granting access to your api getting access to user data in other system(authorization)
+
+
+use openid for for user login , making your accounts available in other systems
+
+whic grant type(flow) do i use?
+web app with backend recommended authorization code flow
+native mobile app: authorization code flow with PKCE
+javascript app(SPA) with api backend: implicit flow
+microservices and apis: client credentials flow
+
+
+oauth.com - ebbok
+
+developer.okta.com to host your own authorisation server
