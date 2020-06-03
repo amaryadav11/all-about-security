@@ -82,7 +82,9 @@ oAuthdebugger.com
 
 There are a coupe of different OAuthe grant types
 1.Authorization code (front channel + back channel)
-2. Implicit(front channnel only)
-3. Resource owner password credentials(back channel only)
-4. client credentials (back channel only)
+2. Implicit(front channnel only)(when you dont have a back channel skip the authoeization code exchange step and give me the access token right away from Authorization server dont give me the 
+code )(use cases: pure react or angular app that has no backend or mobile app means there is no backend server to render the page or run any sort of logic on server side)
+3. Resource owner password credentials(back channel only) server side code posting credentials to the 
+Authorization server to get the access token right away no browser involved used when working with older apps
+4. client credentials (back channel only) used when doing machine to machine or service to service communication
 
