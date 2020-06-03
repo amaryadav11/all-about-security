@@ -79,3 +79,10 @@ Steps to setup oAuth
 1. register with a Authorization server
 after registering app it will give clientid(identifies the xyz app) and client secret(sensitive other part of key that is used with auth code to get get access token)
 oAuthdebugger.com
+
+There are a coupe of different OAuthe grant types
+1.Authorization code (front channel + back channel)
+2. Implicit(front channnel only)
+3. Resource owner password credentials(back channel only)
+4. client credentials (back channel only)
+
